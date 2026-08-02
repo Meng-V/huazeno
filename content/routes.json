@@ -1,0 +1,813 @@
+[
+  {
+    "route": "/",
+    "key": "home",
+    "source": "index.html",
+    "title": "Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer specialising inBran Bags|Flour Bags manufacturer",
+    "keywords": "Flour Bags,Bran Bags",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/Home_398e760de7a866e87adcc094db4357b1.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/about",
+    "key": "about",
+    "source": "about.html",
+    "title": "About Us-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer About Us specialising inBran Bags|Flour Bags manufacturer",
+    "keywords": "Plastic Packaging,Flour Bags,Bran Bags,About Us",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/about_7cee76f3d3d49ab0904fee9d85efee9e.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/about/culture",
+    "key": "about__culture",
+    "source": "Culture.html",
+    "title": "Corporate Culture-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer Corporate Culture specialising inBran Bags|Flour Bags manufacturer",
+    "keywords": "Plastic Packaging,Flour Bags,Bran Bags,Corporate Culture",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/Culture_562667e50fe0a6b81dc0f528c2b5dee0.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/about/factory",
+    "key": "about__factory",
+    "source": "gczs.html",
+    "title": "Factory Tour-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer Factory Tour specialising inBran Bags|Flour Bags manufacturer",
+    "keywords": "Plastic Packaging,Flour Bags,Bran Bags,Factory Tour",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/gczs_b2105358f3e4f22a15f672a97521b81b.min.css",
+      "/legacy/upload/css/23c692dbe91e45d1b512ac8b31d08e49.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/about/honours",
+    "key": "about__honours",
+    "source": "zzry.html",
+    "title": "Qualifications & Honours-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer Qualifications & Honours specialising inBran Bags|Flour Bags manufacturer",
+    "keywords": "Plastic Packaging,Flour Bags,Bran Bags,Qualifications & Honours",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/zzry_a66109ec02bba3f2d2dda48964a2387c.min.css",
+      "/legacy/upload/css/23c692dbe91e45d1b512ac8b31d08e49.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/about/network",
+    "key": "about__network",
+    "source": "yxwl.html",
+    "title": "Sales Network-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer Sales Network specialising inBran Bags|Flour Bags manufacturer",
+    "keywords": "Plastic Packaging,Flour Bags,Bran Bags,Sales Network",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/yxwl_c571881ea84bc0fa40acb67d6949ced3.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/contact",
+    "key": "contact",
+    "source": "contact.html",
+    "title": "Contact Us-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer Contact Us specialising inBran Bags|Flour Bags manufacturer",
+    "keywords": "Plastic Packaging,Flour Bags,Bran Bags,Contact Us",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/contact_54795be56dcdfcaa03e12aa81ce446f3.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/digital-card",
+    "key": "digital-card",
+    "source": "DigitalCard.html",
+    "title": "Digital Card-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer Digital Card specialising inBran Bags|Flour Bags manufacturer",
+    "keywords": "Flour Bags,Bran Bags,Plastic Packaging,Digital Card",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/DigitalCard_2e48f8a6acf33c8a994a0b773c0a1999.min.css"
+    ]
+  },
+  {
+    "route": "/exhibitions",
+    "key": "exhibitions",
+    "source": "Exhibitions.html",
+    "title": "Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer specialising inBran Bags|Flour Bags manufacturer",
+    "keywords": "Flour Bags,Bran Bags",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/Exhibitions_a780589697af76753ef8463acd8575d1.min.css"
+    ]
+  },
+  {
+    "route": "/huazeno",
+    "key": "huazeno",
+    "source": "huazeno/index.html",
+    "title": "Huazeno-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer specialising inBran Bags|Flour Bags manufacturer",
+    "keywords": "Flour Bags,Bran Bags",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.2.css",
+      "/legacy/css/site.2.css",
+      "/legacy/css/DigitalCard_detail_version_3_cef3beb41a076edccd280a882ddec42f.min.css"
+    ]
+  },
+  {
+    "route": "/news",
+    "key": "news",
+    "source": "news/4/index.html",
+    "title": "News_Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "News_Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "keywords": "News_News",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/news_eab2c62890069d482d0d8ff36f73a998.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/news/annual-profit-and-tax-exceed-rmb-7-million-16",
+    "key": "news__annual-profit-and-tax-exceed-rmb-7-million-16",
+    "source": "news/16.html",
+    "title": "Annual profit and tax exceed RMB 7 million-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Hebei Huazeno Plastic Packaging Co., Ltd. was founded in 2002 with registered capital of RMB 50 million on a 240-mu site, and today has 110,000 square metres of built floor area.  The company manufactures plastic woven bags and related products. It employs over 700 people, including 60 managers and technicians holding college or vocational degrees, and operates 1,300 sets of plastic-weaving equipment. Annual production and sales exceed 500 million woven units. Annual profit and tax exceed RMB 7 million. Over eighteen years, Huazeno has grown from a small woven-bag workshop into one of the larger plastic-weaving manufacturers in China.",
+    "keywords": "Flour Bags,Bran Bags",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/news_detail_04072ff194006e6fc867165ce6a19b61.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/news/built-floor-area-now-stands-at-110-000-square-metres-14",
+    "key": "news__built-floor-area-now-stands-at-110-000-square-metres-14",
+    "source": "news/14.html",
+    "title": "Built floor area now stands at 110,000 square metres-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Built floor area now stands at 110,000 square metres.  The company manufactures plastic woven bags and related products. It employs over 700 people, including 60 managers and technicians holding college or vocational degrees, and operates 1,300 sets of plastic-weaving equipment.",
+    "keywords": "Flour Bags,Bran Bags",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/news_detail_04072ff194006e6fc867165ce6a19b61.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/news/built-floor-area-now-stands-at-110-000-square-metres-17",
+    "key": "news__built-floor-area-now-stands-at-110-000-square-metres-17",
+    "source": "news/17.html",
+    "title": "Built floor area now stands at 110,000 square metres-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Built floor area now stands at 110,000 square metres.  The company manufactures plastic woven bags and related products. It employs over 700 people, including 60 managers and technicians holding college or vocational degrees, and operates 1,300 sets of plastic-weaving equipment.",
+    "keywords": "Flour Bags,Bran Bags",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.2.css",
+      "/legacy/css/site.2.css",
+      "/legacy/css/news_detail_04072ff194006e6fc867165ce6a19b61.min.2.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/news/company",
+    "key": "news__company",
+    "source": "news/1/index.html",
+    "title": "Company News_Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "News_Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "keywords": "News_Company News",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/news_eab2c62890069d482d0d8ff36f73a998.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/news/from-a-small-workshop-to-one-of-china-s-larger-plastic-weavi-15",
+    "key": "news__from-a-small-workshop-to-one-of-china-s-larger-plastic-weavi-15",
+    "source": "news/15.html",
+    "title": "From a small workshop to one of China's larger plastic-weaving manufacturers-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Annual profit and tax exceed RMB 7 million. Over eighteen years, Huazeno has grown from a small woven-bag workshop into one of the larger plastic-weaving manufacturers in China.",
+    "keywords": "Flour Bags,Bran Bags",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/news_detail_04072ff194006e6fc867165ce6a19b61.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/news/from-a-small-workshop-to-one-of-china-s-larger-plastic-weavi-18",
+    "key": "news__from-a-small-workshop-to-one-of-china-s-larger-plastic-weavi-18",
+    "source": "news/18.html",
+    "title": "From a small workshop to one of China's larger plastic-weaving manufacturers-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Annual profit and tax exceed RMB 7 million. Over eighteen years, Huazeno has grown from a small woven-bag workshop into one of the larger plastic-weaving manufacturers in China.",
+    "keywords": "Flour Bags,Bran Bags",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/news_detail_04072ff194006e6fc867165ce6a19b61.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/news/hebei-huazeno-plastic-packaging-co-ltd-13",
+    "key": "news__hebei-huazeno-plastic-packaging-co-ltd-13",
+    "source": "news/13.html",
+    "title": "Hebei Huazeno Plastic Packaging Co., Ltd.-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Hebei Huazeno Plastic Packaging Co., Ltd. was founded in 2002 with registered capital of RMB 50 million on a 240-mu site, and today has 110,000 square metres of built floor area. CompanyManufacturer of plastic woven bags and related products",
+    "keywords": "Flour Bags,Bran Bags",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.2.css",
+      "/legacy/css/site.2.css",
+      "/legacy/css/news_detail_04072ff194006e6fc867165ce6a19b61.min.2.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/news/hebei-huazeno-plastic-packaging-co-ltd-19",
+    "key": "news__hebei-huazeno-plastic-packaging-co-ltd-19",
+    "source": "news/19.html",
+    "title": "Hebei Huazeno Plastic Packaging Co., Ltd.-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Hebei Huazeno Plastic Packaging Co., Ltd. was founded in 2002 with registered capital of RMB 50 million on a 240-mu site, and today has 110,000 square metres of built floor area. CompanyManufacturer of plastic woven bags and related products",
+    "keywords": "Flour Bags,Bran Bags",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.2.css",
+      "/legacy/css/site.2.css",
+      "/legacy/css/news_detail_04072ff194006e6fc867165ce6a19b61.min.2.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/news/industry",
+    "key": "news__industry",
+    "source": "news/2/index.html",
+    "title": "Industry News_Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "News_Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "keywords": "News_Industry News",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/news_eab2c62890069d482d0d8ff36f73a998.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products",
+    "key": "products",
+    "source": "product/18/index.html",
+    "title": "Products-Products-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Products Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "keywords": "",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_b4a088fef7e32079cd5b5768681ccb50.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/bran-bags",
+    "key": "products__bran-bags",
+    "source": "product/20/index.html",
+    "title": "Bran Bags-Products-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Bran Bags Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "keywords": "",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_b4a088fef7e32079cd5b5768681ccb50.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/bran-bags/bran-bags-274",
+    "key": "products__bran-bags__bran-bags-274",
+    "source": "product/274.html",
+    "title": "Bran Bags-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Bran Bags",
+    "keywords": "Bran Bags,Fabric Rolls",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/bran-bags/bran-bags-275",
+    "key": "products__bran-bags__bran-bags-275",
+    "source": "product/275.html",
+    "title": "Bran Bags-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Bran Bags",
+    "keywords": "Bran Bags,Fabric Rolls",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/bran-bags/bran-bags-276",
+    "key": "products__bran-bags__bran-bags-276",
+    "source": "product/276.html",
+    "title": "Bran Bags-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Bran Bags",
+    "keywords": "Bran Bags,Fabric Rolls",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/bran-bags/bran-bags-277",
+    "key": "products__bran-bags__bran-bags-277",
+    "source": "product/277.html",
+    "title": "Bran Bags-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Bran Bags",
+    "keywords": "Bran Bags,Fabric Rolls",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/bran-bags/bran-bags-278",
+    "key": "products__bran-bags__bran-bags-278",
+    "source": "product/278.html",
+    "title": "Bran Bags-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Bran Bags",
+    "keywords": "Bran Bags,Fabric Rolls",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/bran-bags/bran-bags-279",
+    "key": "products__bran-bags__bran-bags-279",
+    "source": "product/279.html",
+    "title": "Bran Bags-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Bran Bags",
+    "keywords": "Bran Bags,Fabric Rolls",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/fabric-rolls",
+    "key": "products__fabric-rolls",
+    "source": "product/22/index.html",
+    "title": "Fabric Rolls-Products-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Fabric Rolls Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "keywords": "",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_b4a088fef7e32079cd5b5768681ccb50.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/fabric-rolls/circular-loom-overview-282",
+    "key": "products__fabric-rolls__circular-loom-overview-282",
+    "source": "product/282.html",
+    "title": "Circular Loom Overview-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Circular Loom Overview",
+    "keywords": "Circular Loom Overview,Fabric Rolls",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/fabric-rolls/circular-weaving-workshop-281",
+    "key": "products__fabric-rolls__circular-weaving-workshop-281",
+    "source": "product/281.html",
+    "title": "Circular Weaving Workshop-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Circular Weaving Workshop",
+    "keywords": "Circular Weaving Workshop,Fabric Rolls",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/fabric-rolls/fabric-roll-production-280",
+    "key": "products__fabric-rolls__fabric-roll-production-280",
+    "source": "product/280.html",
+    "title": "Fabric Roll Production-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Fabric Roll Production",
+    "keywords": "Fabric Roll Production,Fabric Rolls",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/fabric-rolls/fabric-roll-warehouse-283",
+    "key": "products__fabric-rolls__fabric-roll-warehouse-283",
+    "source": "product/283.html",
+    "title": "Fabric Roll Warehouse-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Fabric Roll Warehouse",
+    "keywords": "Fabric Roll Warehouse,Fabric Rolls",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/flour-bags",
+    "key": "products__flour-bags",
+    "source": "product/19/index.html",
+    "title": "Flour Bags-Products-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Flour Bags Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "keywords": "",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_b4a088fef7e32079cd5b5768681ccb50.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/flour-bags/flour-bags-255",
+    "key": "products__flour-bags__flour-bags-255",
+    "source": "product/255.html",
+    "title": "Flour Bags-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Flour Bags  The company manufactures plastic woven bags and related products.The company employs over 700 people",
+    "keywords": "Flour Bags",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/flour-bags/flour-bags-256",
+    "key": "products__flour-bags__flour-bags-256",
+    "source": "product/256.html",
+    "title": "Flour Bags-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Flour Bags  The company manufactures plastic woven bags and related products.The company employs over 700 people",
+    "keywords": "Flour Bags",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/flour-bags/flour-bags-257",
+    "key": "products__flour-bags__flour-bags-257",
+    "source": "product/257.html",
+    "title": "Flour Bags-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Flour Bags  The company manufactures plastic woven bags and related products.The company employs over 700 people",
+    "keywords": "Flour Bags",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/flour-bags/flour-bags-258",
+    "key": "products__flour-bags__flour-bags-258",
+    "source": "product/258.html",
+    "title": "Flour Bags-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Flour Bags  The company manufactures plastic woven bags and related products.The company employs over 700 people",
+    "keywords": "Flour Bags",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/flour-bags/flour-bags-269",
+    "key": "products__flour-bags__flour-bags-269",
+    "source": "product/269.html",
+    "title": "Flour Bags-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Flour Bags  The company manufactures plastic woven bags and related products.The company employs over 700 people",
+    "keywords": "Flour Bags",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/flour-bags/flour-bags-270",
+    "key": "products__flour-bags__flour-bags-270",
+    "source": "product/270.html",
+    "title": "Flour Bags-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Flour Bags  The company manufactures plastic woven bags and related products.The company employs over 700 people",
+    "keywords": "Flour Bags",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/flour-bags/flour-bags-271",
+    "key": "products__flour-bags__flour-bags-271",
+    "source": "product/271.html",
+    "title": "Flour Bags-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Flour Bags  The company manufactures plastic woven bags and related products.The company employs over 700 people",
+    "keywords": "Flour Bags",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/flour-bags/flour-bags-272",
+    "key": "products__flour-bags__flour-bags-272",
+    "source": "product/272.html",
+    "title": "Flour Bags-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Flour Bags  The company manufactures plastic woven bags and related products.The company employs over 700 people",
+    "keywords": "Flour Bags",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/flour-bags/flour-bags-273",
+    "key": "products__flour-bags__flour-bags-273",
+    "source": "product/273.html",
+    "title": "Flour Bags-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Flour Bags  The company manufactures plastic woven bags and related products.The company employs over 700 people",
+    "keywords": "Flour Bags",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/flour-bags/page/2",
+    "key": "products__flour-bags__page__2",
+    "source": "product/1508158269602549760-8-8.html",
+    "title": "Flour Bags-Products-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Flour Bags Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "keywords": "",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_b4a088fef7e32079cd5b5768681ccb50.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/page/2",
+    "key": "products__page__2",
+    "source": "product/1508158269564801024-8-8.html",
+    "title": "Products-Products-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Products Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "keywords": "",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_b4a088fef7e32079cd5b5768681ccb50.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/page/3",
+    "key": "products__page__3",
+    "source": "product/1508158269564801024-16-8.html",
+    "title": "Products-Products-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Products Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "keywords": "",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/product_b4a088fef7e32079cd5b5768681ccb50.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/permits",
+    "key": "products__permits",
+    "source": "product/23/index.html",
+    "title": "Pollutant Discharge Permit-Pollutant Discharge Permit-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Pollutant Discharge Permit Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer Pollutant Discharge Permit",
+    "keywords": "",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.2.css",
+      "/legacy/css/site.2.css",
+      "/legacy/css/product_b4a088fef7e32079cd5b5768681ccb50.min.2.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/permits/pollutant-discharge-permit-284",
+    "key": "products__permits__pollutant-discharge-permit-284",
+    "source": "product/284.html",
+    "title": "Pollutant Discharge Permit-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Pollutant Discharge Permit Pollutant Discharge Permit",
+    "keywords": "Pollutant Discharge Permit",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.2.css",
+      "/legacy/css/site.2.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.2.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/qualifications",
+    "key": "products__qualifications",
+    "source": "product/16/index.html",
+    "title": "Honours & Qualifications-Honours & Qualifications-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Honours & Qualifications Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "keywords": "",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.2.css",
+      "/legacy/css/site.2.css",
+      "/legacy/css/product_b4a088fef7e32079cd5b5768681ccb50.min.2.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/qualifications/honours-qualifications-259",
+    "key": "products__qualifications__honours-qualifications-259",
+    "source": "product/259.html",
+    "title": "Honours & Qualifications-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Honours & Qualifications",
+    "keywords": "Honours & Qualifications",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.2.css",
+      "/legacy/css/site.2.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.2.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/qualifications/honours-qualifications-260",
+    "key": "products__qualifications__honours-qualifications-260",
+    "source": "product/260.html",
+    "title": "Honours & Qualifications-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Honours & Qualifications",
+    "keywords": "Honours & Qualifications",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.2.css",
+      "/legacy/css/site.2.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.2.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/qualifications/pollutant-discharge-permit-285",
+    "key": "products__qualifications__pollutant-discharge-permit-285",
+    "source": "product/285.html",
+    "title": "Pollutant Discharge Permit-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Pollutant Discharge Permit",
+    "keywords": "Pollutant Discharge Permit",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.2.css",
+      "/legacy/css/site.2.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.2.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/qualifications/pollutant-discharge-permit-286",
+    "key": "products__qualifications__pollutant-discharge-permit-286",
+    "source": "product/286.html",
+    "title": "Pollutant Discharge Permit-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Pollutant Discharge Permit",
+    "keywords": "Pollutant Discharge Permit",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.2.css",
+      "/legacy/css/site.2.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.2.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/qualifications/pollutant-discharge-permit-287",
+    "key": "products__qualifications__pollutant-discharge-permit-287",
+    "source": "product/287.html",
+    "title": "Pollutant Discharge Permit-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Pollutant Discharge Permit",
+    "keywords": "Pollutant Discharge Permit",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.2.css",
+      "/legacy/css/site.2.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.2.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/products/qualifications/pollutant-discharge-permit-288",
+    "key": "products__qualifications__pollutant-discharge-permit-288",
+    "source": "product/288.html",
+    "title": "Pollutant Discharge Permit-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Pollutant Discharge Permit",
+    "keywords": "Pollutant Discharge Permit",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.2.css",
+      "/legacy/css/site.2.css",
+      "/legacy/css/product_detail_10b1ecada7fdd6f73651f203702d222e.min.2.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/search",
+    "key": "search",
+    "source": "result.html",
+    "title": "Search results-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer Search results specialising inBran Bags|Flour Bags manufacturer",
+    "keywords": "Plastic Packaging,Flour Bags,Bran Bags,Search results",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.2.css",
+      "/legacy/css/site.2.css",
+      "/legacy/css/result_a7f6be4ae31f7e53791596d2ae372f64.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/tags",
+    "key": "tags",
+    "source": "taglist.html",
+    "title": "Keyword index-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "specialising inBran Bags|Flour Bags manufacturer",
+    "keywords": "Flour Bags,Bran Bags",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/taglist_dfa13e372f8a24617bea79b0da556450.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  },
+  {
+    "route": "/tags/2060615315176697856",
+    "key": "tags__2060615315176697856",
+    "source": "tagdetail/2060615315176697856.html",
+    "title": "Fabric Rolls-Hebei Huazeno Plastic Packaging Co., Ltd.|Flour Bags|Bran Bags manufacturer",
+    "description": "",
+    "keywords": "",
+    "stylesheets": [
+      "/legacy/npublic/libs/css/ceccbootstrap.min.css,global.css",
+      "/legacy/css/site.css",
+      "/legacy/css/tagdetail_5e9e67949022ee9b6a0f20268d575935.min.css",
+      "/legacy/css/contact-form.css"
+    ]
+  }
+]

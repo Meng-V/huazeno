@@ -1,27 +1,13 @@
 import type { MetadataRoute } from 'next';
-import { catalogue, categories, news } from '@/lib/content';
+import { allPages } from '@/lib/pages';
 import { site } from '@/lib/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = [
-    '',
-    '/about',
-    '/about/honours',
-    '/about/culture',
-    '/about/factory',
-    '/about/network',
-    '/products',
-    '/news',
-    '/exhibitions',
-    '/contact',
-  ];
-
-  return [
-    ...staticRoutes.map((path) => ({ url: `${site.url}${path}`, changeFrequency: 'monthly' as const })),
-    ...categories.map((category) => ({ url: `${site.url}/products/${category.slug}` })),
-    ...catalogue.map((product) => ({
-      url: `${site.url}/products/${product.categorySlug}/${product.slug}`,
-    })),
-    ...news.map((post) => ({ url: `${site.url}/news/${post.slug}` })),
-  ];
+  return allPages
+    .filter((page) => !page.route.startsWith('/search'))
+    .map((page) => ({
+      url: `${site.url}${page.route === '/' ? '' : page.route}`,
+      changeFrequency: 'monthly' as const,
+      priority: page.route === '/' ? 1 : 0.7,
+    }));
 }

@@ -1,0 +1,28 @@
+/* Behaviour the mirrored SaaS bundle used to add with JavaScript. The visual
+   rules all still come from the original stylesheets in /public/legacy. */
+
+body {
+  margin: 0;
+}
+
+.p_level1Item {
+  position: relative;
+}
+
+@media (min-width: 769px) {
+  .p_level1Item:hover > .p_level2Box,
+  .p_level2Item:hover > .p_level3Box {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .p_navContent.is-open {
+    display: block !important;
+    overflow-y: auto;
+  }
+
+  .p_level2Box.is-open {
+    display: block !important;
+  }
+}
