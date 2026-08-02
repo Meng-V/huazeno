@@ -6,7 +6,7 @@ WORKDIR /app
 # 修正这里
 RUN npm config set registry https://npmmirror.com
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN npm i
 
 # 2. 编译构建阶段
 FROM docker.1ms.run/library/node:22-alpine AS builder
