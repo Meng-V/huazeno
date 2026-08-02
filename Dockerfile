@@ -1,28 +1,30 @@
-# 1. 依赖安装阶段
-FROM node:22-alpine AS deps
+# 1. 依赖安装阶段（直接换用国内目前可用的 1ms 镜像代理源站）
+FROM docker.1ms.run/library/node:22-alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
-# 如果在国内 ECS 打包，建议切换为阿里云镜像源，速度极快
+
+# 修正：你上一轮写的 npmmirror 必须使用官方标准的 registry 接口地址
 RUN npm config set registry https://npmmirror.com
 COPY package.json package-lock.json ./
 RUN npm ci
 
 # 2. 编译构建阶段
-FROM node:22-alpine AS builder
+FROM docker.1ms.run/library/node:22-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-# 同样切换镜像源
+
 RUN npm config set registry https://npmmirror.com
 RUN npm run build
 
 # 3. 生产运行阶段
-FROM node:22-alpine AS runner
+FROM docker.1ms.run/library/node:22-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 
 RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
+RUN addgroup --system --gid 1001 nodejs || true
+RUN adduser --system --uid 1001 nextjs || true
 
 COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
