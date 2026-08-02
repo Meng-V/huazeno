@@ -1,0 +1,62 @@
+/* Working contact / enquiry forms (see server/index.mjs). */
+
+.hz-hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.hz-field-error {
+    display: block;
+    min-height: 1em;
+    margin: 4px 2px 0;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #d93025;
+}
+
+.hz-field-error:empty {
+    min-height: 0;
+}
+
+.hz-form-status {
+    margin: 12px 0 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.hz-form-status.is-success {
+    color: #1a7f37;
+}
+
+.hz-form-status.is-error {
+    color: #d93025;
+}
+
+.hz-submit {
+    border: none;
+    cursor: pointer;
+}
+
+.hz-submit[disabled] {
+    opacity: .65;
+    cursor: default;
+}
+
+.hz-contact .form-group {
+    margin-bottom: 12px;
+}
+
+.hz-footer-form .hz-field-error {
+    color: #ffb4ac;
+}
+
+.hz-footer-form .hz-form-status.is-success {
+    color: #9ae6b4;
+}
+
+.hz-footer-form .hz-form-status.is-error {
+    color: #ffb4ac;
+}

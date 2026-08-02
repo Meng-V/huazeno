@@ -1,0 +1,65 @@
+{
+  "slides": [
+    {
+      "image": "/media/7ea1e34b-658e-41ab-ab32-ec8f746bc3ff.jpg",
+      "alt": "Hebei Huazeno Plastic Packaging Co., Ltd."
+    },
+    {
+      "image": "/media/154b87aa-8c51-431e-8ae4-47924d4350c2.jpg",
+      "alt": "Hebei Huazeno Plastic Packaging Co., Ltd."
+    },
+    {
+      "image": "/media/b448c6f6-4598-4414-9da7-7a1927dc2637.jpg",
+      "alt": "Hebei Huazeno Plastic Packaging Co., Ltd."
+    }
+  ],
+  "stats": [
+    {
+      "value": "2000",
+      "unit": "yr",
+      "label": "Employees"
+    },
+    {
+      "value": "240",
+      "unit": "mu",
+      "label": "Site area"
+    },
+    {
+      "value": "700",
+      "unit": "+",
+      "label": "Employees"
+    },
+    {
+      "value": "1300",
+      "unit": "+",
+      "label": "Machines"
+    }
+  ],
+  "showcase": [
+    {
+      "caption": "Fabric Roll Warehouse",
+      "image": "/media/b1615225-9105-41e9-ab14-2b737d09a802.jpg",
+      "productId": "283"
+    },
+    {
+      "caption": "Circular Loom Overview",
+      "image": "/media/44509d68-af74-4c14-bf86-20ee4862255d.jpeg",
+      "productId": "282"
+    },
+    {
+      "caption": "Circular Weaving Workshop",
+      "image": "/media/a33086dd-b14b-4339-9b2d-cda7ccd4bfdc.jpeg",
+      "productId": "281"
+    },
+    {
+      "caption": "Fabric Roll Production",
+      "image": "/media/83303931-9102-4f39-bcc9-9bf69993e411.jpeg",
+      "productId": "280"
+    },
+    {
+      "caption": "Products",
+      "image": "/media/69a5b596-a026-4525-bf71-073ee771b637.png",
+      "productId": null
+    }
+  ]
+}

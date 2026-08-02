@@ -1,0 +1,23 @@
+[
+  {
+    "id": "19",
+    "slug": "flour-bags",
+    "name": "Flour Bags",
+    "count": 9,
+    "image": null
+  },
+  {
+    "id": "20",
+    "slug": "bran-bags",
+    "name": "Bran Bags",
+    "count": 6,
+    "image": "/media/ccf25b0b-abf5-47ed-bd74-3841346a1abc.jpg"
+  },
+  {
+    "id": "22",
+    "slug": "fabric-rolls",
+    "name": "Fabric Rolls",
+    "count": 4,
+    "image": "/media/83303931-9102-4f39-bcc9-9bf69993e411.jpeg"
+  }
+]
