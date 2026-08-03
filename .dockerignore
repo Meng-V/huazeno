@@ -1,0 +1,37 @@
+# Keep the build context small and, more importantly, stop `COPY . .` from
+# clobbering things the earlier build stages set up correctly.
+#
+# node_modules is the critical one: the Dockerfile does
+#     COPY --from=deps /app/node_modules ./node_modules
+#     COPY . .
+# so a local node_modules would be copied *over* the Alpine-installed one.
+# Native modules built on macOS do not run on Alpine (musl), which breaks the
+# build in confusing ways.
+node_modules
+.next
+out
+dist
+
+# Never bake secrets or keys into an image layer.
+*.pem
+.env
+.env.*
+!.env.example
+
+# Not needed at build time
+.git
+.gitignore
+.gitattributes
+.dockerignore
+Dockerfile
+README.md
+*.md
+scripts
+
+# Editor / OS noise and stale caches
+.DS_Store
+.vscode
+.idea
+*.log
+*.tsbuildinfo
+.eslintcache
