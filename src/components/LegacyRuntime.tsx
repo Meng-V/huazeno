@@ -20,7 +20,8 @@ export default function LegacyRuntime() {
 
   useEffect(() => {
     const cleanups: (() => void)[] = [];
-    cleanups.push(wireNavigation(), wireForms(), wireReveals());
+    cleanups.push(wireNavigation(), wireForms(), wireReveals(), wireRollNumbers(), wireMagnifier());
+    cleanups.push(...wireEffectCarousels());
     cleanups.push(...wireSwipers());
     return () => cleanups.forEach((fn) => fn());
   }, [pathname]);
@@ -84,6 +85,9 @@ function wireSwipers() {
 
   carousels.forEach((element) => {
     if (element.classList.contains('gallery-thumbs')) return;
+    // Skip anything a more specific initialiser (e.g. the effect showcase)
+    // already turned into a Swiper.
+    if (element.classList.contains('swiper-initialized')) return;
     if (element.querySelectorAll('.swiper-slide').length < 2) return;
 
     const paired = element.classList.contains('gallery-top')
@@ -160,6 +164,120 @@ function wireReveals() {
     observer.disconnect();
     window.clearTimeout(failsafe);
   };
+}
+
+// The homepage stat block (2000 / 240 / 700 / 1300) counts up from zero when it
+// scrolls into view — the vendor did this via `use-rollnum` markers.
+function wireRollNumbers() {
+  const targets = Array.from(document.querySelectorAll<HTMLElement>('[use-rollnum]'));
+  if (targets.length === 0) return () => {};
+
+  const run = (el: HTMLElement) => {
+    const end = Number(el.getAttribute('data-num') ?? el.textContent ?? '0');
+    if (!Number.isFinite(end) || end <= 0) return;
+    const duration = 1600;
+    const start = performance.now();
+    const step = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(end * eased).toLocaleString();
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        run(entry.target as HTMLElement);
+        observer.unobserve(entry.target);
+      });
+    },
+    { rootMargin: '0px 0px -15% 0px' },
+  );
+  targets.forEach((el) => observer.observe(el));
+  return () => observer.disconnect();
+}
+
+// Product-detail pages use a bespoke magnifier whose main image was injected by
+// vendor JS. Populate `.images-cover` from the thumbnail strip and swap on hover
+// so the product photo actually shows.
+function wireMagnifier() {
+  const cleanups: (() => void)[] = [];
+
+  document.querySelectorAll<HTMLElement>('.magnifier').forEach((root) => {
+    const cover = root.querySelector<HTMLElement>('.images-cover');
+    const thumbs = Array.from(root.querySelectorAll<HTMLElement>('.small-img'));
+    if (!cover || thumbs.length === 0) return;
+
+    let image = cover.querySelector('img');
+    if (!image) {
+      image = document.createElement('img');
+      image.style.maxWidth = '100%';
+      image.style.maxHeight = '100%';
+      image.style.objectFit = 'contain';
+      cover.appendChild(image);
+    }
+
+    const show = (thumb: HTMLElement) => {
+      const url = thumb.getAttribute('data-url') || thumb.querySelector('img')?.getAttribute('src');
+      if (url && image) image.src = url;
+      thumbs.forEach((other) => other.classList.toggle('active', other === thumb));
+    };
+
+    thumbs.forEach((thumb) => {
+      const enter = () => show(thumb);
+      thumb.addEventListener('mouseenter', enter);
+      thumb.addEventListener('click', enter);
+      cleanups.push(() => {
+        thumb.removeEventListener('mouseenter', enter);
+        thumb.removeEventListener('click', enter);
+      });
+    });
+
+    show(thumbs[0]);
+  });
+
+  return () => cleanups.forEach((fn) => fn());
+}
+
+// The footer "effect" showcase is a centred Swiper (its CSS scales the active
+// slide) built from an `e_loop` list. Convert the list markup into Swiper's
+// structure and initialise it.
+function wireEffectCarousels() {
+  const instances: Swiper[] = [];
+
+  document.querySelectorAll<HTMLElement>('[id*="c_effect_062"] .p_list').forEach((list) => {
+    const slides = Array.from(list.children).filter((child) =>
+      child.classList.contains('p_loopitem'),
+    );
+    if (slides.length < 2) return;
+
+    const container = list.parentElement;
+    if (!container || container.classList.contains('swiper-initialized')) return;
+
+    container.classList.add('swiper');
+    list.classList.add('swiper-wrapper');
+    slides.forEach((slide) => slide.classList.add('swiper-slide'));
+
+    instances.push(
+      new Swiper(container, {
+        modules: [Navigation, Autoplay],
+        slidesPerView: 1.2,
+        spaceBetween: 24,
+        // Swiper's loop needs more slides than are shown per view; the showcase
+        // only carries three cards, so keep it static across the row on desktop.
+        loop: slides.length > 4,
+        autoplay: slides.length > 4 ? { delay: 4000, disableOnInteraction: false } : false,
+        breakpoints: {
+          768: { slidesPerView: Math.min(slides.length, 3), spaceBetween: 30 },
+        },
+      }),
+    );
+  });
+
+  return instances.map((instance) => () => instance.destroy(true, true));
 }
 
 function wireForms() {
