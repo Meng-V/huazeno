@@ -20,8 +20,15 @@ export default function LegacyRuntime() {
 
   useEffect(() => {
     const cleanups: (() => void)[] = [];
-    cleanups.push(wireNavigation(), wireForms(), wireReveals(), wireRollNumbers(), wireMagnifier());
-    cleanups.push(...wireEffectCarousels());
+    cleanups.push(
+      wireNavigation(),
+      wireForms(),
+      wireReveals(),
+      wireRollNumbers(),
+      wireMagnifier(),
+      wireLightbox(),
+      wireFlightMap(),
+    );
     cleanups.push(...wireSwipers());
     return () => cleanups.forEach((fn) => fn());
   }, [pathname]);
@@ -94,10 +101,17 @@ function wireSwipers() {
       ? Array.from(thumbs.values())[0]
       : undefined;
 
+    // Without `loop`, Swiper stops at the last slide and the only way back is
+    // animating in reverse through every slide. Cloning gives a continuous
+    // one-direction cycle instead. Thumb-paired galleries are excluded: the
+    // clones break the active-thumb mapping.
+    const infinite = !paired && element.querySelectorAll('.swiper-slide').length > 1;
+
     instances.push(
       new Swiper(element, {
         modules: [Navigation, Pagination, Autoplay, Parallax, Thumbs],
         speed: 1200,
+        loop: infinite,
         parallax: element.classList.contains('special_a'),
         autoplay: element.classList.contains('special_a')
           ? { delay: 7000, pauseOnMouseEnter: true }
@@ -200,16 +214,25 @@ function wireRollNumbers() {
   return () => observer.disconnect();
 }
 
-// Product-detail pages use a bespoke magnifier whose main image was injected by
-// vendor JS. Populate `.images-cover` from the thumbnail strip and swap on hover
-// so the product photo actually shows.
+// Product-detail magnifier.
+//
+// The template ships the whole apparatus — `.images-cover` (main image),
+// `.move-view` (the lens that tracks the cursor) and `.image-bigger` (the
+// zoomed panel) — but the vendor JS that drove it was never captured, so
+// previously only the thumbnail swap worked and hovering magnified nothing.
+// This implements the lens/zoom pair and the prev/next thumb buttons.
+const ZOOM = 2.5;
+
 function wireMagnifier() {
   const cleanups: (() => void)[] = [];
 
   document.querySelectorAll<HTMLElement>('.magnifier').forEach((root) => {
     const cover = root.querySelector<HTMLElement>('.images-cover');
+    const container = root.querySelector<HTMLElement>('.magnifier-container');
+    const lens = root.querySelector<HTMLElement>('.move-view');
+    const panel = root.querySelector<HTMLElement>('.image-bigger');
     const thumbs = Array.from(root.querySelectorAll<HTMLElement>('.small-img'));
-    if (!cover || thumbs.length === 0) return;
+    if (!cover || !container) return;
 
     let image = cover.querySelector('img');
     if (!image) {
@@ -219,66 +242,268 @@ function wireMagnifier() {
       image.style.objectFit = 'contain';
       cover.appendChild(image);
     }
+    const main = image;
 
-    const show = (thumb: HTMLElement) => {
-      const url = thumb.getAttribute('data-url') || thumb.querySelector('img')?.getAttribute('src');
-      if (url && image) image.src = url;
+    let current = '';
+    const show = (url: string | null | undefined, thumb?: HTMLElement) => {
+      if (!url) return;
+      current = url;
+      main.src = url;
+      if (panel) panel.style.backgroundImage = `url("${url}")`;
       thumbs.forEach((other) => other.classList.toggle('active', other === thumb));
     };
 
+    const urlOf = (thumb: HTMLElement) =>
+      thumb.getAttribute('data-url') || thumb.querySelector('img')?.getAttribute('src');
+
     thumbs.forEach((thumb) => {
-      const enter = () => show(thumb);
-      thumb.addEventListener('mouseenter', enter);
-      thumb.addEventListener('click', enter);
+      const pick = () => show(urlOf(thumb), thumb);
+      thumb.addEventListener('mouseenter', pick);
+      thumb.addEventListener('click', pick);
       cleanups.push(() => {
-        thumb.removeEventListener('mouseenter', enter);
-        thumb.removeEventListener('click', enter);
+        thumb.removeEventListener('mouseenter', pick);
+        thumb.removeEventListener('click', pick);
       });
     });
 
-    show(thumbs[0]);
+    show(thumbs.length ? urlOf(thumbs[0]) : main.getAttribute('src'), thumbs[0]);
+
+    // ---- lens + zoom panel -------------------------------------------------
+    if (lens && panel) {
+      const hide = () => {
+        lens.style.display = 'none';
+        panel.style.display = 'none';
+      };
+      hide();
+      panel.style.backgroundRepeat = 'no-repeat';
+      const icon = panel.querySelector<HTMLElement>('.add-icon');
+      if (icon) icon.style.display = 'none';
+
+      const move = (event: MouseEvent) => {
+        const box = container.getBoundingClientRect();
+        if (!box.width || !box.height || !current) return;
+
+        lens.style.display = 'block';
+        panel.style.display = 'block';
+
+        const lensW = box.width / ZOOM;
+        const lensH = box.height / ZOOM;
+        lens.style.width = `${lensW}px`;
+        lens.style.height = `${lensH}px`;
+
+        // keep the lens inside the image
+        const x = Math.min(Math.max(event.clientX - box.left - lensW / 2, 0), box.width - lensW);
+        const y = Math.min(Math.max(event.clientY - box.top - lensH / 2, 0), box.height - lensH);
+        lens.style.left = `${x}px`;
+        lens.style.top = `${y}px`;
+
+        panel.style.backgroundSize = `${box.width * ZOOM}px ${box.height * ZOOM}px`;
+        panel.style.backgroundPosition = `-${x * ZOOM}px -${y * ZOOM}px`;
+      };
+
+      container.addEventListener('mousemove', move);
+      container.addEventListener('mouseleave', hide);
+      cleanups.push(() => {
+        container.removeEventListener('mousemove', move);
+        container.removeEventListener('mouseleave', hide);
+      });
+    }
+
+    // ---- thumbnail strip prev/next -----------------------------------------
+    const strip = root.querySelector<HTMLElement>('.magnifier-assembly .small-img-list, .magnifier-assembly ul');
+    const step = (dir: number) => () => {
+      const active = thumbs.findIndex((t) => t.classList.contains('active'));
+      const next = thumbs[(active + dir + thumbs.length) % thumbs.length];
+      if (next) {
+        show(urlOf(next), next);
+        next.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+      }
+      void strip;
+    };
+    (
+      [
+        ['.magnifier-btn-left', -1],
+        ['.magnifier-btn-right', 1],
+      ] as const
+    ).forEach(([selector, dir]) => {
+      const button = root.querySelector<HTMLElement>(selector);
+      if (!button || thumbs.length === 0) return;
+      const handler = step(dir);
+      button.style.cursor = 'pointer';
+      button.addEventListener('click', handler);
+      cleanups.push(() => button.removeEventListener('click', handler));
+    });
   });
 
   return () => cleanups.forEach((fn) => fn());
 }
 
-// The footer "effect" showcase is a centred Swiper (its CSS scales the active
-// slide) built from an `e_loop` list. Convert the list markup into Swiper's
-// structure and initialise it.
-function wireEffectCarousels() {
-  const instances: Swiper[] = [];
+// Click-to-enlarge for gallery images.
+//
+// The markup is already tagged for it — factory/honours/permit tiles carry
+// `fancyboxHz` / `fancyImg`, because the original site used fancybox. That
+// vendor script was never captured, so the tiles were dead to clicks. This
+// provides the same behaviour: a full-size overlay that steps through every
+// image in the same list, with keyboard and click-out dismissal.
+function wireLightbox() {
+  const groups = new Map<Element, string[]>();
+  const cleanups: (() => void)[] = [];
 
-  document.querySelectorAll<HTMLElement>('[id*="c_effect_062"] .p_list').forEach((list) => {
-    const slides = Array.from(list.children).filter((child) =>
-      child.classList.contains('p_loopitem'),
-    );
-    if (slides.length < 2) return;
+  const candidates = Array.from(
+    document.querySelectorAll<HTMLImageElement>(
+      '.fancyboxHz img, .fancyImg img, .p_loopitem .s_img img',
+    ),
+  ).filter((img) => {
+    // skip icons, logos and anything inside a link that already navigates
+    if (img.closest('a')) return false;
+    const src = img.getAttribute('src') || '';
+    return !!src && !src.endsWith('.svg');
+  });
+  if (candidates.length === 0) return () => {};
 
-    const container = list.parentElement;
-    if (!container || container.classList.contains('swiper-initialized')) return;
-
-    container.classList.add('swiper');
-    list.classList.add('swiper-wrapper');
-    slides.forEach((slide) => slide.classList.add('swiper-slide'));
-
-    instances.push(
-      new Swiper(container, {
-        modules: [Navigation, Autoplay],
-        slidesPerView: 1.2,
-        spaceBetween: 24,
-        // Swiper's loop needs more slides than are shown per view; the showcase
-        // only carries three cards, so keep it static across the row on desktop.
-        loop: slides.length > 4,
-        autoplay: slides.length > 4 ? { delay: 4000, disableOnInteraction: false } : false,
-        breakpoints: {
-          768: { slidesPerView: Math.min(slides.length, 3), spaceBetween: 30 },
-        },
-      }),
-    );
+  candidates.forEach((img) => {
+    const list = img.closest('.p_list') ?? img.closest('.s_list') ?? document.body;
+    const urls = groups.get(list) ?? [];
+    if (!urls.includes(img.src)) urls.push(img.src);
+    groups.set(list, urls);
   });
 
-  return instances.map((instance) => () => instance.destroy(true, true));
+  // ---- overlay ------------------------------------------------------------
+  const overlay = document.createElement('div');
+  overlay.className = 'hz-lightbox';
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-modal', 'true');
+  overlay.innerHTML = `
+    <button class="hz-lb-close" aria-label="Close">&times;</button>
+    <button class="hz-lb-prev" aria-label="Previous image">&#8249;</button>
+    <figure class="hz-lb-figure"><img alt=""><figcaption></figcaption></figure>
+    <button class="hz-lb-next" aria-label="Next image">&#8250;</button>
+  `;
+  document.body.appendChild(overlay);
+
+  const picture = overlay.querySelector('img') as HTMLImageElement;
+  const caption = overlay.querySelector('figcaption') as HTMLElement;
+  let list: string[] = [];
+  let index = 0;
+  let captions: string[] = [];
+
+  const render = () => {
+    picture.src = list[index] ?? '';
+    caption.textContent = captions[index] ?? '';
+    const many = list.length > 1;
+    overlay.querySelector<HTMLElement>('.hz-lb-prev')!.style.display = many ? '' : 'none';
+    overlay.querySelector<HTMLElement>('.hz-lb-next')!.style.display = many ? '' : 'none';
+  };
+  const open = () => {
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  };
+  const close = () => {
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+  };
+  const move = (dir: number) => {
+    index = (index + dir + list.length) % list.length;
+    render();
+  };
+
+  candidates.forEach((img) => {
+    const trigger = (img.closest('.fancyboxHz') as HTMLElement) ?? img;
+    trigger.style.cursor = 'zoom-in';
+    const onClick = (event: Event) => {
+      event.preventDefault();
+      const owner = img.closest('.p_list') ?? img.closest('.s_list') ?? document.body;
+      list = groups.get(owner) ?? [img.src];
+      captions = list.map((url) => {
+        const match = candidates.find((c) => c.src === url);
+        return match?.getAttribute('title') || match?.getAttribute('alt') || '';
+      });
+      index = Math.max(list.indexOf(img.src), 0);
+      render();
+      open();
+    };
+    trigger.addEventListener('click', onClick);
+    cleanups.push(() => trigger.removeEventListener('click', onClick));
+  });
+
+  const onOverlayClick = (event: MouseEvent) => {
+    const target = event.target as HTMLElement;
+    if (target.closest('.hz-lb-prev')) return move(-1);
+    if (target.closest('.hz-lb-next')) return move(1);
+    // clicking the backdrop (not the picture) dismisses
+    if (!target.closest('.hz-lb-figure') || target.tagName === 'FIGURE') close();
+  };
+  const onKey = (event: KeyboardEvent) => {
+    if (!overlay.classList.contains('is-open')) return;
+    if (event.key === 'Escape') close();
+    if (event.key === 'ArrowLeft') move(-1);
+    if (event.key === 'ArrowRight') move(1);
+  };
+
+  overlay.addEventListener('click', onOverlayClick);
+  document.addEventListener('keydown', onKey);
+
+  return () => {
+    cleanups.forEach((fn) => fn());
+    overlay.removeEventListener('click', onOverlayClick);
+    document.removeEventListener('keydown', onKey);
+    overlay.remove();
+    document.body.style.overflow = '';
+  };
 }
+
+// The homepage sales-network map.
+//
+// `#ceshi8` is an echarts world map with animated flight paths. The content
+// pipeline stripped the four <script> tags that fed it (and script tags injected
+// via innerHTML never execute anyway), so the container rendered empty. Load the
+// original chain in order: jQuery -> echarts -> world geo data -> map config.
+const MAP_SCRIPTS = [
+  '/legacy/npublic/libs/core/ceccjquery.min.js,require.min.js,lib.min.js,page.min.js',
+  '/legacy/upload/js/5821e1a250c3425c8cede2febaa5a241.js',
+  '/legacy/upload/js/5271338b5bc5488a88c993e8f22cf1a2.js',
+  '/legacy/upload/js/20d28298bdd14cd0830e1ccdc5100802.js',
+];
+
+function wireFlightMap() {
+  if (!document.getElementById('ceshi8')) return () => {};
+
+  let cancelled = false;
+  const load = (src: string) =>
+    new Promise<void>((resolve) => {
+      const existing = document.querySelector<HTMLScriptElement>(`script[data-hz="${src}"]`);
+      if (existing) return resolve();
+      const script = document.createElement('script');
+      script.src = src;
+      script.async = false;
+      script.dataset.hz = src;
+      script.onload = () => resolve();
+      script.onerror = () => resolve(); // keep the chain going; the map just stays empty
+      document.head.appendChild(script);
+    });
+
+  (async () => {
+    for (const src of MAP_SCRIPTS) {
+      if (cancelled) return;
+      await load(src);
+    }
+  })();
+
+  return () => {
+    cancelled = true;
+  };
+}
+
+// NOTE: the homepage quick-link tiles (`c_effect_062`) used to be converted into
+// a Swiper here. That was wrong — the source page never marks this module as a
+// carousel, and its own stylesheet lays it out as a plain flex row:
+//
+//   .e_loop-50 .p_list    { display: flex; flex-wrap: wrap }
+//   .e_loop-50 .p_loopitem { flex: 0 0 33.3% }
+//
+// Swiper-ifying it overrode that with `slidesPerView: 1.2`, which collapsed the
+// row to ~179px and left the tiles the wrong size. Leaving the markup alone lets
+// the original CSS render the row as intended.
 
 function wireForms() {
   const forms = Array.from(document.querySelectorAll<HTMLFormElement>('form.hz-form'));

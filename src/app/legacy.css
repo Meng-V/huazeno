@@ -26,3 +26,128 @@ body {
     display: block !important;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Latin text layout.
+
+   The mirrored template sets `word-break: break-all` in several places. That is
+   the right call for Chinese, which has no inter-word spaces, but applied to
+   English it breaks words mid-letter ("Qualific / ations"). `writing-mode: tb`
+   likewise stacks glyphs vertically, which is illegible in Latin script.
+   Restore normal word boundaries and let long tokens wrap only when they must.
+   --------------------------------------------------------------------------- */
+/* !important is required: the template's break-all rules carry id-level
+   specificity, so a plain (or :where) rule would lose to them. */
+body * {
+  word-break: normal !important;
+  overflow-wrap: break-word;
+}
+
+.p_scrool span,
+[class*='bannerD'] .p_scrool span {
+  writing-mode: horizontal-tb !important;
+}
+
+/* Homepage quick-link tiles.
+   The legacy stylesheet colours these by position — nth-child(1..4) mapped to
+   red / #2b2b29 / #434342 / #595958. The third of the four original tiles was
+   dropped, which shifted Contact Us from slot 4 into slot 3 so it picked up the
+   wrong grey
+   and the 4th rule stopped matching anything. Restore the intended sequence for
+   the three tiles that remain.
+   The legacy sheet is linked per-page and therefore loads after this file, so
+   an equal-specificity rule would lose; !important is what actually wins. */
+#c_effect_062_P_129-17803849447450 .e_loop-50 .p_loopitem:nth-child(3) .e_container-51 {
+  background-color: #595958 !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Lightbox for gallery images (factory tour, honours, permits).
+   Stands in for the fancybox the original site loaded from its vendor bundle.
+   --------------------------------------------------------------------------- */
+.hz-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.88);
+  padding: 4vmin;
+}
+
+.hz-lightbox.is-open {
+  display: flex;
+}
+
+.hz-lb-figure {
+  margin: 0;
+  max-width: 88vw;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.hz-lb-figure img {
+  max-width: 88vw;
+  max-height: 78vh;
+  object-fit: contain;
+  background: #fff;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.hz-lb-figure figcaption {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 15px;
+  text-align: center;
+}
+
+.hz-lightbox button {
+  position: absolute;
+  border: 0;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  cursor: pointer;
+  line-height: 1;
+  transition: background 0.25s ease;
+}
+
+.hz-lightbox button:hover {
+  background: #c8161d;
+}
+
+.hz-lb-close {
+  top: 3vmin;
+  right: 3vmin;
+  width: 46px;
+  height: 46px;
+  font-size: 30px;
+  border-radius: 50%;
+}
+
+.hz-lb-prev,
+.hz-lb-next {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 54px;
+  height: 54px;
+  font-size: 34px;
+  border-radius: 50%;
+}
+
+.hz-lb-prev { left: 3vmin; }
+.hz-lb-next { right: 3vmin; }
+
+/* The map needs a height of its own: the container is an empty div that echarts
+   sizes from, and with no content it would otherwise collapse to zero. */
+#ceshi8 {
+  width: 100%;
+  min-height: 420px;
+}
+
+@media (max-width: 768px) {
+  #ceshi8 { min-height: 260px; }
+  .hz-lb-prev, .hz-lb-next { width: 42px; height: 42px; font-size: 26px; }
+}
