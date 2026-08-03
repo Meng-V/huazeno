@@ -39,6 +39,43 @@ die()  { printf '%s\n' "${R}  ✗${N} $*" >&2; exit 1; }
 # ---------------------------------------------------------------- 子命令
 docker_ok() { command -v docker >/dev/null 2>&1 || die "未找到 docker"; }
 
+# 释放宿主端口。
+#
+# 不能只删名字叫 $APP_NAME 的容器：这台机器上原本跑的是 nextjs-website
+# （镜像 fullstack），名字不一样但占着同一个端口，于是新容器启动时报
+# "port is already allocated"。这里按“谁占着端口”来找，而不是按名字找。
+free_port() {
+  local port="$1" ids id name image
+
+  # 1) 占用该端口的容器（不限名字）
+  ids=$(docker ps -q --filter "publish=${port}" 2>/dev/null || true)
+  # 兜底：个别 docker 版本 publish 过滤器不灵，直接扫端口映射列
+  if [ -z "$ids" ]; then
+    ids=$(docker ps --format '{{.ID}} {{.Ports}}' 2>/dev/null \
+          | awk -v p=":${port}->" 'index($0,p){print $1}' || true)
+  fi
+  for id in $ids; do
+    name=$(docker inspect -f '{{.Name}}' "$id" 2>/dev/null | sed 's#^/##')
+    image=$(docker inspect -f '{{.Config.Image}}' "$id" 2>/dev/null)
+    warn "端口 ${port} 被容器占用：${name} (${image}) —— 移除"
+    docker rm -f "$id" >/dev/null 2>&1 || true
+  done
+
+  # 2) 同名容器（可能已停止，只是占着名字）
+  if docker ps -aq --filter "name=^/${APP_NAME}$" | grep -q .; then
+    docker rm -f "$APP_NAME" >/dev/null 2>&1 || true
+  fi
+
+  # 3) 仍被非 Docker 进程占用 —— 这种情况脚本不该擅自杀，报清楚让人判断
+  if command -v ss >/dev/null 2>&1; then
+    if ss -ltn "sport = :${port}" 2>/dev/null | grep -q LISTEN; then
+      printf '%s\n' "${R}  ✗${N} 端口 ${port} 仍被非 Docker 进程占用：" >&2
+      ss -ltnp "sport = :${port}" 2>/dev/null | sed 's/^/      /' >&2
+      die "请先处理该进程，或用 HOST_PORT=3001 ./build.sh 换端口"
+    fi
+  fi
+}
+
 case "${1:-}" in
   --logs)
     docker_ok; exec docker logs -f --tail 200 "$APP_NAME"
@@ -49,7 +86,7 @@ case "${1:-}" in
       || die "没有可回滚的镜像（${IMAGE_PREV} 不存在）"
     say "回滚到上一个镜像"
     docker tag "$IMAGE_PREV" "$IMAGE"
-    docker rm -f "$APP_NAME" >/dev/null 2>&1 || true
+    free_port "$HOST_PORT"
     # shellcheck disable=SC2046
     docker run -d --name "$APP_NAME" -p "${HOST_PORT}:${CONTAINER_PORT}" \
       $( [ -f "$ENV_FILE" ] && printf '%s' "--env-file $ENV_FILE" ) \
@@ -111,7 +148,7 @@ docker tag "$IMAGE_NEW" "$IMAGE"
 docker image rm -f "$IMAGE_NEW" >/dev/null 2>&1 || true
 
 say "重启容器"
-docker rm -f "$APP_NAME" >/dev/null 2>&1 || true
+free_port "$HOST_PORT"
 # shellcheck disable=SC2046
 docker run -d --name "$APP_NAME" -p "${HOST_PORT}:${CONTAINER_PORT}" \
   $( [ -f "$ENV_FILE" ] && printf '%s' "--env-file $ENV_FILE" ) \
